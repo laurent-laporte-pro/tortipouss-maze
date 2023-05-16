@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tortipouss-maze"
+version = "0.1.0"
+description = "Can Tortipouss escape from a maze?"
+readme = "README.md"
+license.file = "LICENSE.txt"
+keywords = ["learning", "tutorial", "example", "turtle", "maze"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+]
+authors = [
+    { name = "Laurent LAPORTE", email = "laurent.laporte.pro@gmail.com" }
+]
+dependencies = ["pypng", "pillow"]
+
+[project.urls]
+"Documentation" = "https://github.com/laurent-laporte-pro/tortipouss-maze"
+"Source" = "https://github.com/laurent-laporte-pro/tortipouss-maze/"
+"Tracker" = "https://github.com/laurent-laporte-pro/tortipouss-maze/issues"
