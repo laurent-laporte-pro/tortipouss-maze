@@ -17,33 +17,29 @@ def load_maze_txt(file_path):
     return final_list
 
 
-def save_maze_png(maze_row, px, file_path2):
-    BLACK = [0, 0, 0]
-    RED = [255, 0, 0]
-    WHITE = [255, 255, 255]
-    GREEN = [0, 255, 0]
-    BLUE = [0, 0, 255]
+BLACK = [0, 0, 0]
+RED = [255, 0, 0]
+GREEN = [0, 255, 0]
+BLUE = [0, 0, 255]
 
+
+def save_maze_png(matrix, px, file_path2):
     data = []
-    for row in maze_row:
+    for row in matrix:
         total = []
         for cell in row:
-            if cell == 2:
-                BK = BLACK * px
-                total += BK
             if cell == 0:
-                B = BLUE * px
-                total += B
-            if cell == 1:
-                R = RED * px
-                total += R
-            if cell == 3:
-                G = GREEN * px
-                total += G
+                total += BLUE * px
+            elif cell == 1:
+                total += RED * px
+            elif cell == 2:
+                total += BLACK * px
+            elif cell == 3:
+                total += GREEN * px
 
-        data.append(total)
+        data.extend([total] * px)
 
-    shape_width, shape_height = len(maze_row[0]), len(maze_row)
+    shape_width, shape_height = len(matrix[0]), len(matrix)
     filename = Path(file_path2)
     with filename.open(mode="wb") as fd:
         writer = png.Writer(
@@ -56,10 +52,10 @@ def save_maze_png(maze_row, px, file_path2):
 
 def main():
     file_path = "Laby1.txt"
-    maze_row = load_maze_txt(file_path)
-    px = 1
+    matrix = load_maze_txt(file_path)
+    px = 20
     file_path2 = "maze.png"
-    save_maze_png(maze_row, px, file_path2)
+    save_maze_png(matrix, px, file_path2)
 
 
 main()
